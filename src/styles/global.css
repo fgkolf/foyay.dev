@@ -5,9 +5,23 @@
     --secondary-color: #f45d48;
 }
 
+@font-face {
+    font-family: Manrope;
+    src: url('fonts/Manrope/Manrope-Regular.ttf') format('truetype');
+    font-weight: 400; /* Normal weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Manrope;
+    src: url('fonts/Manrope/Manrope-Bold.ttf') format('truetype');
+    font-weight: 700; /* Bold weight */
+    font-style: normal;
+}
+
 html {
     background-color: var(--bg-color);
-    font-family: sans-serif;
+    font-family: Manrope, serif;
 }
 
 nav a:hover {
