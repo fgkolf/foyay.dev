@@ -1,0 +1,15 @@
+---
+const { headerTitle } = Astro.props;
+---
+
+<header>
+  <a href="/" class="py-4 pr-4 flex items-center">
+    <span
+      id="menuButton"
+      class="bg-[var(--highlight-color)] size-[5vw] mr-[3vw]"></span>
+    <h1 class="text-[5vw] font-semibold transition-all duration-700">
+      {headerTitle}
+    </h1>
+  </a>
+  <div class="bg-[var(--base-color)] h-[0.5vw] w-[84vw] ml-[8vw]"></div>
+</header>

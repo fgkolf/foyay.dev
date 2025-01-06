@@ -24,6 +24,18 @@ html {
     font-family: Manrope, serif;
 }
 
-nav a:hover {
-    border-bottom: 4px solid var(--secondary-color);
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+footer {
+    min-height: 50px;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

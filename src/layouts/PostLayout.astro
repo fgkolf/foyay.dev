@@ -1,0 +1,27 @@
+---
+import Layout from "./Layout.astro";
+import Prose from "../components/Prose.astro";
+
+const { frontmatter } = Astro.props;
+const publishDate = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "long",
+}).format(new Date(frontmatter.pubDate));
+---
+
+<Layout metaTitle={frontmatter.title}>
+  <div class="flex flex-col gap-2 text-center mb-8">
+    <h1 class="text-3xl font-bold">
+      {frontmatter.title}
+    </h1>
+    <p class="font-bold">
+      by <span class="text-[var(--secondary-color)]">{frontmatter.author}</span>
+    </p>
+    <p>
+      Posted on {publishDate}
+    </p>
+  </div>
+  <Prose>
+    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+    <slot />
+  </Prose>
+</Layout>
