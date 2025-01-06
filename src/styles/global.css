@@ -1,0 +1,15 @@
+:root {
+    --bg-color:#f8f5f2;
+    --base-color: #232323;
+    --highlight-color: #078080;
+    --secondary-color: #f45d48;
+}
+
+html {
+    background-color: var(--bg-color);
+    font-family: sans-serif;
+}
+
+nav a:hover {
+    border-bottom: 4px solid var(--secondary-color);
+}

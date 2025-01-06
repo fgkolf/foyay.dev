@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+import Social from "../components/Social.astro";
+
+const defaultTitle = "David R. K. Adler";
+const { pageTitle = defaultTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="text-[var(--base-color)]">
+      <a href="/" class="py-4 pr-4 flex items-center">
+        <span
+          class="bg-[var(--highlight-color)] hover:bg-[var(--secondary-color)] size-[6vw] mr-[3vw] transition-all duration-1000"
+        ></span>
+        <h1 class="text-[6vw] font-semibold transition-all duration-700">
+          {pageTitle}
+        </h1>
+      </a>
+      <div class="bg-[var(--base-color)] h-[0.5vw] w-[82vw] ml-[9vw]"></div>
+      <div class="flex">
+        <div class="p-8 lg:p-16">
+          <aside>
+            <Navigation />
+            <Social />
+          </aside>
+        </div>
+        <div
+          class="p-8 border-l-[0.5vw] border-solid border-[var(--base-color)]"
+        >
+          <slot />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
