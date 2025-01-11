@@ -4,7 +4,7 @@ import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout metaTitle={frontmatter.title}>
+<Layout metaTitle={frontmatter.title} sidebarHidden>
   <h1>{frontmatter.title}</h1>
   <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
   <p><em>{frontmatter.description}</em></p>

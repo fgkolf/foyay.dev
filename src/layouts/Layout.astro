@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 const siteName = "fgkolf:";
-const { pageTitle, metaTitle } = Astro.props;
+const { pageTitle, metaTitle, sidebarHidden } = Astro.props;
 const title =
   pageTitle || metaTitle ? `${pageTitle || metaTitle} | ${siteName}` : siteName;
 ---
@@ -20,17 +20,15 @@ const title =
   </head>
   <body class="text-[var(--base-color)]">
     <Header headerTitle={pageTitle || siteName} />
-    <main class="flex">
-      <aside id="sidebar" class="p-4 md:p-12">
+    <main class={`flex relative ${sidebarHidden ? "" : "sidebar-visible"}`}>
+      <aside
+        id="sidebar"
+        class={`p-4 md:p-12 border-r-[0.5vw] border-solid border-[var(--base-color)] ${sidebarHidden ? "hidden sm:block" : ""}`}
+      >
         <Navigation />
         <Social />
       </aside>
-      <div
-        id="content"
-        class="p-8 md:p-12
-         flex flex-col items-center
-         border-l-[0.5vw] border-solid border-[var(--base-color)]"
-      >
+      <div class="p-8 md:p-12 flex flex-col items-center">
         <slot />
       </div>
     </main>

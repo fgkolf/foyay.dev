@@ -1,15 +1,42 @@
 ---
+import BurgerIcon from "./BurgerIcon.astro";
 const { headerTitle } = Astro.props;
 ---
 
 <header>
   <a href="/" class="py-4 pr-4 flex items-center">
-    <span
+    <div
       id="menuButton"
-      class="bg-[var(--highlight-color)] size-[5vw] mr-[3vw]"></span>
+      class="bg-[var(--highlight-color)] size-[6vw] mr-[3vw] group flex items-center justify-center sm:pointer-events-none"
+    >
+      <BurgerIcon />
+    </div>
     <h1 class="text-[5vw] font-semibold transition-all duration-700">
       {headerTitle}
     </h1>
   </a>
-  <div class="bg-[var(--base-color)] h-[0.5vw] w-[84vw] ml-[8vw]"></div>
+  <div class="bg-[var(--base-color)] h-[0.5vw] w-[82vw] ml-[9vw]"></div>
 </header>
+
+<script>
+  const menuButton = document.querySelector("#menuButton");
+
+  menuButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const mainContainer = document.querySelector("main");
+    const sideBar = document.querySelector("aside");
+    const visible = mainContainer.classList.contains("sidebar-visible");
+
+    if (visible) {
+      mainContainer.classList.remove("sidebar-visible");
+      setTimeout(() => {
+        sideBar.classList.add("hidden");
+      }, 200);
+    } else {
+      sideBar.classList.remove("hidden");
+      setTimeout(() => {
+        mainContainer.classList.toggle("sidebar-visible");
+      }, 200);
+    }
+  });
+</script>
