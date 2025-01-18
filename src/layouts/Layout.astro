@@ -6,9 +6,10 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 const siteName = "fgkolf:";
-const { pageTitle, metaTitle } = Astro.props;
-const title =
-  pageTitle || metaTitle ? `${pageTitle || metaTitle} | ${siteName}` : siteName;
+const { pageTitle = "", metaTitle } = Astro.props;
+const tabTitle = pageTitle || metaTitle;
+const title = tabTitle?.concat(` | ${siteName}`) || siteName;
+const headerTitle = `${siteName} ${pageTitle}`;
 ---
 
 <html lang="en">
@@ -19,7 +20,7 @@ const title =
     <title>{title}</title>
   </head>
   <body class="text-[var(--base-color)]">
-    <Header headerTitle={pageTitle || siteName} />
+    <Header headerTitle={headerTitle} />
     <main class="flex">
       <aside
         id="sidebar"
@@ -33,5 +34,6 @@ const title =
       </div>
     </main>
     <Footer />
+    <div class="overlay"></div>
   </body>
 </html>

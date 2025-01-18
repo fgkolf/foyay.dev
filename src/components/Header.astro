@@ -1,39 +1,38 @@
 ---
 import BurgerIcon from "./BurgerIcon.astro";
+import Separator from "./Separator.astro";
 const { headerTitle } = Astro.props;
 ---
 
 <header>
   <a href="/" class="py-4 pr-4 flex items-center">
     <div
-      id="menuButton"
-      class="bg-[var(--highlight-color)] size-[6vw] mr-[3vw] group flex items-center justify-center sm:pointer-events-none"
+      id="menu-button"
+      class="fixed rounded-r-md sm:absolute z-10 bg-[var(--highlight-color)] size-[7vw] sm:size-[5vw] group flex items-center justify-center sm:pointer-events-none transition-all duration-700"
     >
       <BurgerIcon />
     </div>
-    <h1 class="text-[5vw] font-semibold transition-all duration-700">
+    <h1
+      class="text-[7vw] sm:text-[5vw] ml-[11vw] sm:ml-[9vw] font-semibold transition-all duration-700"
+    >
       {headerTitle}
     </h1>
   </a>
-  <div class="bg-[var(--base-color)] h-[0.5vw] w-[82vw] ml-[9vw]"></div>
+  <Separator />
 </header>
 
 <script>
   const sidebar = document.querySelector("#sidebar");
-
-  const menuButton = document.querySelector("#menuButton");
+  const menuButton = document.querySelector("#menu-button");
+  const overlay = document.querySelector(".overlay");
 
   menuButton.addEventListener("click", (e) => {
     e.preventDefault();
     sidebar.classList.toggle("visible");
   });
 
-  document.addEventListener("click", (e) => {
-    if (!sidebar.classList.contains("visible")) return;
-
-    if (!sidebar.contains(e.target) && !menuButton.contains(e.target)) {
-      e.preventDefault();
-      sidebar.classList.remove("visible");
-    }
+  overlay.addEventListener("click", (e) => {
+    e.preventDefault();
+    sidebar.classList.remove("visible");
   });
 </script>

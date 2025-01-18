@@ -1,8 +1,50 @@
-<div class="space-y-[1vw] sm:hidden">
-  <span
-    class="block h-0.5 w-[3vw] origin-center rounded-full bg-[var(--base-color)]"
-  ></span>
-  <span
-    class="block h-0.5 w-[2vw] origin-center rounded-full bg-[var(--base-color)]"
-  ></span>
-</div>
+<button
+  class="sm:hidden group inline-flex text-center items-center justify-center rounded"
+  aria-closed="false"
+>
+  <span class="sr-only">Menu</span>
+  <svg class="size-[4vw] fill-current pointer-events-none" viewBox="0 0 16 16">
+    <rect
+      class="origin-center -translate-y-[5px] translate-x-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-closed=true]]:translate-x-0 group-[[aria-closed=true]]:translate-y-0 group-[[aria-closed=true]]:rotate-[315deg]"
+      y="7"
+      width="9"
+      height="2"
+      rx="1"></rect>
+    <rect
+      class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-[[aria-closed=true]]:rotate-45"
+      y="7"
+      width="16"
+      height="2"
+      rx="1"></rect>
+    <rect
+      class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-closed=true]]:translate-y-0 group-[[aria-closed=true]]:-rotate-[225deg]"
+      y="7"
+      width="9"
+      height="2"
+      rx="1"></rect>
+  </svg>
+</button>
+
+<script>
+  const sidebar = document.querySelector("#sidebar");
+  const overlay = document.querySelector(".overlay");
+
+  const handleSidebarToggle = (mutationList) => {
+    for (const mutation of mutationList) {
+      if (mutation.attributeName !== "class") return;
+
+      const open = mutation.target.classList.contains("visible");
+      document
+        .querySelector("#menu-button button")
+        .setAttribute("aria-closed", open);
+
+      document.body.style.overflow = open ? "hidden" : "auto";
+      overlay.style.left = sidebar.offsetWidth - 1 + "px";
+      overlay.classList.toggle("visible");
+    }
+  };
+
+  const observer = new MutationObserver(handleSidebarToggle);
+
+  observer.observe(sidebar, { attributes: true });
+</script>
