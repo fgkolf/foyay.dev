@@ -19,24 +19,21 @@ const { headerTitle } = Astro.props;
 </header>
 
 <script>
+  const sidebar = document.querySelector("#sidebar");
+
   const menuButton = document.querySelector("#menuButton");
 
   menuButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const mainContainer = document.querySelector("main");
-    const sideBar = document.querySelector("aside");
-    const visible = mainContainer.classList.contains("sidebar-visible");
+    sidebar.classList.toggle("visible");
+  });
 
-    if (visible) {
-      mainContainer.classList.remove("sidebar-visible");
-      setTimeout(() => {
-        sideBar.classList.add("hidden");
-      }, 200);
-    } else {
-      sideBar.classList.remove("hidden");
-      setTimeout(() => {
-        mainContainer.classList.toggle("sidebar-visible");
-      }, 200);
+  document.addEventListener("click", (e) => {
+    if (!sidebar.classList.contains("visible")) return;
+
+    if (!sidebar.contains(e.target) && !menuButton.contains(e.target)) {
+      e.preventDefault();
+      sidebar.classList.remove("visible");
     }
   });
 </script>

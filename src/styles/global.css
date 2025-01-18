@@ -1,3 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* noinspection ALL */
+@view-transition {
+    navigation: auto;
+}
+
 :root {
     --bg-color:#f8f5f2;
     --base-color: #232323;
@@ -40,12 +49,22 @@ pre {
     word-wrap: break-word;
 }
 
-aside {
-    transform: translateX(-100%);
-    transition: transform 0.2s ease;
+@layer utilities {
+    .mobile-sidebar {
+        position: fixed;
+        height: 100%;
+        top: 0;
+        z-index: 1;
+        transform: translateX(-100%);
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        background: rgb(255 255 255 / 40%);
+        box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--base-color);
+    }
+
+    .mobile-sidebar.visible {
+        transform: translateX(0);
+    }
 }
 
-/* Sidebar shown state */
-main.sidebar-visible aside {
-    transform: translateX(0);
-}

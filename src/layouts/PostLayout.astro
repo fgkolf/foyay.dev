@@ -8,7 +8,7 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
 }).format(new Date(frontmatter.pubDate));
 ---
 
-<Layout metaTitle={frontmatter.title} sidebarHidden>
+<Layout metaTitle={frontmatter.title}>
   <div class="flex flex-col gap-2 text-center mb-8">
     <h1 class="text-3xl font-bold">
       {frontmatter.title}
