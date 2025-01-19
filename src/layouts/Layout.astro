@@ -21,7 +21,7 @@ const headerTitle = `${siteName} ${pageTitle}`;
   </head>
   <body class="text-[var(--base-color)]">
     <Header headerTitle={headerTitle} />
-    <main class="flex">
+    <div class="flex">
       <aside
         id="sidebar"
         class="max-sm:mobile-sidebar max-sm:pt-24 p-12 border-r-[0.5vw] border-solid border-[var(--base-color)]"
@@ -29,11 +29,11 @@ const headerTitle = `${siteName} ${pageTitle}`;
         <Navigation />
         <Social />
       </aside>
-      <div class="p-8 md:p-12 flex flex-col items-center">
+      <main class="p-8 md:p-12 flex flex-col items-center">
         <slot />
-      </div>
-    </main>
+      </main>
+    </div>
     <Footer />
-    <div class="overlay"></div>
+    <div class="overlay sm:hidden"></div>
   </body>
 </html>
