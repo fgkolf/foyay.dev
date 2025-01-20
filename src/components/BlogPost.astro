@@ -1,0 +1,29 @@
+---
+const { url, frontmatter } = Astro.props.post;
+const publishDate = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "long",
+}).format(new Date(frontmatter.date));
+---
+
+<a href={url} class="blog-post flex flex-col gap-1">
+  <img
+    class="rounded"
+    src={frontmatter.image.url}
+    alt={frontmatter.image.alt}
+    loading="lazy"
+  />
+  <div class="text-sm flex justify-between">
+    <div>
+      <time>{publishDate}</time>
+      <span> • </span>
+      <span>{frontmatter.readingTime}</span>
+    </div>
+    <span class="text-[var(--highlight-color)]"
+      >{frontmatter.tags.join(",")}</span
+    >
+  </div>
+  <h4 class="font-semibold text-xl">
+    {frontmatter.title}
+  </h4>
+  <p>{frontmatter.description}</p>
+</a>

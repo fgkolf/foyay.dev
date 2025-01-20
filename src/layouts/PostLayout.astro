@@ -5,7 +5,7 @@ import Prose from "../components/Prose.astro";
 const { frontmatter } = Astro.props;
 const publishDate = new Intl.DateTimeFormat("en-US", {
   dateStyle: "long",
-}).format(new Date(frontmatter.pubDate));
+}).format(new Date(frontmatter.date));
 ---
 
 <Layout metaTitle={frontmatter.title}>

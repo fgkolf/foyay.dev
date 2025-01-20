@@ -1,13 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+const allProjects = Object.values(
+  import.meta.glob("./projects/*.md", { eager: true }),
+);
 const pageTitle = "Projects";
 ---
 
 <Layout pageTitle={pageTitle}>
   <ul>
-    <li><a href="/projects/project-1">Project 1</a></li>
-    <li><a href="/projects/project-2">Project 2</a></li>
-    <li><a href="/projects/project-3">Project 3</a></li>
+    {
+      allProjects.map((project) => (
+        <li>
+          <a href={project.url}>{project.frontmatter.title}</a>
+        </li>
+      ))
+    }
   </ul>
 </Layout>

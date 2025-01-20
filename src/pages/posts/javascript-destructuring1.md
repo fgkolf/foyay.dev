@@ -6,8 +6,8 @@ description: The destructuring assignment syntax is a way to "unpack" values fro
 author: 'fgkolf'
 readingTime: '3min'
 image:
-    url: '/olive-sieve.webp'
-    alt: 'An siege full of olives in a field.'
+  url: '/olive-sieve.webp'
+  alt: 'An siege full of olives in a field.'
 tags: ["javascript"]
 ---
 
