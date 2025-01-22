@@ -7,10 +7,9 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
 
 <a href={url} class="blog-post flex flex-col gap-1">
   <img
-    class="rounded"
+    class="rounded-lg"
     src={frontmatter.image.url}
     alt={frontmatter.image.alt}
-    loading="lazy"
   />
   <div class="text-sm flex justify-between">
     <div>
@@ -25,5 +24,5 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
   <h4 class="font-semibold text-xl">
     {frontmatter.title}
   </h4>
-  <p>{frontmatter.description}</p>
+  <p class="text-md text-justify">{frontmatter.description}</p>
 </a>

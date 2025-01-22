@@ -5,7 +5,7 @@ const { headerTitle } = Astro.props;
 ---
 
 <header>
-  <a href="/" class="py-4 pr-4 flex items-center">
+  <a href="/" class="py-4 flex items-center">
     <div
       id="menu-button"
       class="fixed rounded-r-md sm:absolute z-10 bg-[var(--highlight-color)] size-[7vw] sm:size-[5vw] group flex items-center justify-center sm:pointer-events-none transition-all duration-700 my-3 mr-3"
@@ -17,6 +17,11 @@ const { headerTitle } = Astro.props;
     >
       {headerTitle}
     </h1>
+    <div
+      class="absolute size-[11vw] sm:size-[8vw] right-[9vw] sm:right-[7vw] animate-wiggle"
+    >
+      <img src="/favicon.svg" alt="Site logo" />
+    </div>
   </a>
   <Separator />
 </header>

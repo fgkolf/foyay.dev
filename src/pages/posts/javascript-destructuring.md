@@ -2,7 +2,7 @@
 layout: '../../layouts/PostLayout.astro'
 title: 'Destructuring in Javascript'
 date: 2024-07-01
-description: The destructuring assignment syntax is a way to "unpack" values from arrays, properties from objects, or any other iterable, into distinct variables.'
+description: A way to "unpack" values from arrays, properties from objects, or any other iterable, into distinct variables.
 author: 'fgkolf'
 readingTime: '3min'
 image:

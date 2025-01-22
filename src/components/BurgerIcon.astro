@@ -28,7 +28,6 @@
 <script>
   const sidebar = document.querySelector("#sidebar");
   const overlay = document.querySelector(".overlay");
-  overlay.style.left = sidebar.offsetWidth - 1 + "px";
 
   const handleSidebarToggle = (mutationList) => {
     for (const mutation of mutationList) {
@@ -41,11 +40,7 @@
 
       document.body.style.overflow = open ? "hidden" : "auto";
 
-      if (open) {
-        overlay.classList.add("visible");
-      } else {
-        overlay.classList.remove("visible");
-      }
+      overlay.classList.toggle("visible");
     }
   };
 
