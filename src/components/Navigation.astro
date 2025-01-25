@@ -3,15 +3,17 @@ const linkClass = "hover:underline decoration-[var(--highlight-color)]";
 ---
 
 <nav>
-  <ul class="text-2xl lg:text-3xl grid gap-6">
+  <ul
+    class="text-2xl lg:text-3xl 2xl:text-4xl grid gap-6 w-auto 2xl:min-w-[11vw]"
+  >
     <li>
       <a href="/" class={linkClass}>Info</a>
     </li>
     <li>
-      <a href="/projects" class={linkClass}>Projects</a>
+      <a href="/blog" class={linkClass}>Blog</a>
     </li>
     <li>
-      <a href="/blog" class={linkClass}>Blog</a>
+      <a href="/projects" class={linkClass}>Projects</a>
     </li>
   </ul>
 </nav>
