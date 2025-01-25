@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/PostLayout.astro'
 title: 'Destructuring in Javascript'
-date: 2024-07-01
+date: 01-07-2024
 description: A way to "unpack" values from arrays, properties from objects, or any other iterable, into distinct variables.
 author: 'fgkolf'
 readingTime: '3min'

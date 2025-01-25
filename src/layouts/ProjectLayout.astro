@@ -6,12 +6,30 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout metaTitle={frontmatter.title}>
-  <Prose>
-    <h1>{frontmatter.title}</h1>
-    <p>{frontmatter.date.toString().slice(0, 10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-    <slot />
-  </Prose>
+  <div class="flex flex-col gap-4 text-center mb-8">
+    <h1 class="text-3xl font-bold">
+      {frontmatter.title}
+    </h1>
+    <h2 class="text-xl">{frontmatter.description}</h2>
+    <div class="text-[var(--highlight-color)]">
+      {frontmatter.tags.join(" • ")}
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {
+        frontmatter.images.map((image) => (
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg shadow-lg drop-shadow-lg"
+              src={image.url}
+              alt={image.alt}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <Prose>
+      <slot />
+    </Prose>
+  </div>
 </Layout>
