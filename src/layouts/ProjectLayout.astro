@@ -1,4 +1,8 @@
 ---
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-coverflow";
 import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
 
@@ -14,18 +18,19 @@ const { frontmatter } = Astro.props;
     <div class="text-[var(--highlight-color)]">
       {frontmatter.tags.join(" • ")}
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      {
-        frontmatter.images.map((image) => (
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg shadow-lg drop-shadow-lg"
-              src={image.url}
-              alt={image.alt}
-            />
-          </div>
-        ))
-      }
+    <div class="swiper w-[500px] max-w-[90vw] max-h-[800px]">
+      <div class="swiper-wrapper">
+        {
+          frontmatter.images.map((image) => (
+            <div class="swiper-slide">
+              <img class="rounded-lg" src={image.url} alt={image.alt} />
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-button-next max-sm:hidden"></div>
+      <div class="swiper-button-prev max-sm:hidden"></div>
+      <div class="swiper-pagination"></div>
     </div>
 
     <Prose>
@@ -33,3 +38,21 @@ const { frontmatter } = Astro.props;
     </Prose>
   </div>
 </Layout>
+
+<script>
+  import Swiper from "swiper";
+  import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
+
+  new Swiper(".swiper", {
+    modules: [Pagination, Navigation, EffectCoverflow],
+    effect: "coverflow",
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    rewind: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>

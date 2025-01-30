@@ -11,6 +11,8 @@
     --bg-color:#f8f5f2;
     --base-color: #232323;
     --highlight-color: #078080;
+    --swiper-navigation-color: var(--highlight-color);
+    --swiper-pagination-color: var(--highlight-color);
 }
 
 @font-face {
@@ -48,7 +50,8 @@ pre {
     word-wrap: break-word;
 }
 
-.blog-post:hover img {
+.blog-post:hover img,
+.project-preview:hover {
     transform: scale(1.01);
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }

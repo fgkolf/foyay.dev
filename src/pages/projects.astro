@@ -20,7 +20,7 @@ const pageTitle = "Projects";
       columns.map((column) => (
         <div class="grid gap-4">
           {column.map(({ url, frontmatter }) => (
-            <figure class="col-span-2 relative group overflow-hidden rounded-lg">
+            <figure class="col-span-2 relative group overflow-hidden rounded-lg project-preview">
               <img
                 class="h-auto max-w-full rounded-lg max-h-[45vh] w-full object-cover"
                 src={frontmatter.images[0].url}
