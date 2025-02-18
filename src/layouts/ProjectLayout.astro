@@ -2,7 +2,7 @@
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "swiper/css/effect-coverflow";
+import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
 
@@ -10,7 +10,9 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout metaTitle={frontmatter.title}>
-  <div class="flex flex-col gap-4 text-center mb-8">
+  <div
+    class="flex flex-col gap-4 text-center mb-8 p-[4vw] bordered bg-[var(--bg-secondary-color)]"
+  >
     <h1 class="text-3xl font-bold">
       {frontmatter.title}
     </h1>
@@ -18,12 +20,12 @@ const { frontmatter } = Astro.props;
     <div class="text-[var(--highlight-color)]">
       {frontmatter.tags.join(" • ")}
     </div>
-    <div class="swiper w-[500px] max-w-[90vw] max-h-[800px]">
+    <div class="swiper w-[500px] max-w-[80vw] max-h-[800px]">
       <div class="swiper-wrapper">
         {
           frontmatter.images.map((image) => (
             <div class="swiper-slide">
-              <img class="rounded-lg" src={image.url} alt={image.alt} />
+              <Image class="rounded-lg" src={image.url} alt={image.alt} />
             </div>
           ))
         }
@@ -41,11 +43,10 @@ const { frontmatter } = Astro.props;
 
 <script>
   import Swiper from "swiper";
-  import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
+  import { Pagination, Navigation } from "swiper/modules";
 
   new Swiper(".swiper", {
-    modules: [Pagination, Navigation, EffectCoverflow],
-    effect: "coverflow",
+    modules: [Pagination, Navigation],
     pagination: {
       el: ".swiper-pagination",
     },

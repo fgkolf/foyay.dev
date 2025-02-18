@@ -1,15 +1,12 @@
 ---
 import "../styles/global.css";
-import Navigation from "../components/Navigation.astro";
-import Social from "../components/Social.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
-const siteName = "fgkolf:";
+const siteName = "foyay";
 const { pageTitle = "", metaTitle } = Astro.props;
 const tabTitle = pageTitle || metaTitle;
 const title = tabTitle?.concat(` | ${siteName}`) || siteName;
-const headerTitle = `${siteName} ${pageTitle}`;
 ---
 
 <html lang="en">
@@ -19,21 +16,13 @@ const headerTitle = `${siteName} ${pageTitle}`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
   </head>
-  <body class="text-[var(--base-color)]">
-    <Header headerTitle={headerTitle} />
-    <div class="flex">
-      <aside
-        id="sidebar"
-        class="max-sm:mobile-sidebar max-sm:pt-24 p-12 border-r-[0.5vw] border-solid border-[var(--base-color)]"
-      >
-        <Navigation />
-        <Social />
-      </aside>
-      <main class="p-8 sm:p-12 px-[4vw] sm:pr-[9vw] flex flex-col items-center">
+  <body>
+    <Header siteName={siteName} />
+    <main class="flex justify-center">
+      <div class="m-[4vw]">
         <slot />
-      </main>
-    </div>
+      </div>
+    </main>
     <Footer />
-    <div class="overlay sm:hidden"></div>
   </body>
 </html>

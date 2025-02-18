@@ -1,41 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const allProjects = Object.values(
-  import.meta.glob("./projects/*.md", { eager: true }),
-);
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
 
-const columns = [];
-const size = 2;
-
-while (allProjects.length > 0) {
-  columns.push(allProjects.splice(0, size));
-}
-
+const projects = await getCollection("projects");
 const pageTitle = "Projects";
 ---
 
 <Layout pageTitle={pageTitle}>
-  <div class="grid max-sm:px-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
     {
-      columns.map((column) => (
-        <div class="grid gap-4">
-          {column.map(({ url, frontmatter }) => (
-            <figure class="col-span-2 relative group overflow-hidden rounded-lg project-preview">
-              <img
-                class="h-auto max-w-full rounded-lg max-h-[45vh] w-full object-cover"
-                src={frontmatter.images[0].url}
-                alt={frontmatter.images[0].alt}
-              />
-              <figcaption class="flex w-full p-3 absolute left-0 bg-slate-900/60 text-[var(--bg-color)] justify-between items-center bottom-0">
-                <div class="flex flex-col gap-y-2">
-                  <p class="text-md font-semibold">{frontmatter.title}</p>
-                  <p class="text-xs">{frontmatter.tags.join(" • ")}</p>
-                </div>
-              </figcaption>
-              <a href={url} class="absolute inset-0" />
-            </figure>
-          ))}
-        </div>
+      projects.map((project) => (
+        <ProjectCard
+          url={`/projects/${project.slug}`}
+          frontmatter={project.data}
+        />
       ))
     }
   </div>

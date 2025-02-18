@@ -1,27 +1,27 @@
 ---
-const linkClass = "hover:underline decoration-[var(--highlight-color)]";
+import Social from "./Social.astro";
+const linkClass =
+  "hover:text-[var(--highlight-color)] font-extrabold transition-colors duration-300";
 ---
 
-<nav>
+<nav
+  id="navigation"
+  class="flex align-center justify-center max-sm:mobile-nav transition-colors duration-300"
+>
   <ul
-    class="text-2xl lg:text-3xl 2xl:text-4xl grid gap-6 w-auto 2xl:min-w-[11vw]"
+    class="bordered mt-4 text-xl px-6 py-4 flex gap-4 bg-[var(--bg-secondary-color)]"
   >
     <li>
-      <a href="/" class={linkClass}>Info</a>
+      <a href="/" class={linkClass}>info</a>
     </li>
     <li>
-      <a href="/blog" class={linkClass}>Blog</a>
+      <a href="/blog" class={linkClass}>blog</a>
     </li>
     <li>
-      <a href="/projects" class={linkClass}>Projects</a>
+      <a href="/projects" class={linkClass}>projects</a>
+    </li>
+    <li class="pl-4 border-l-4 border-double border-[var(--base-color)]">
+      <Social />
     </li>
   </ul>
 </nav>
-
-<script>
-  const nav = document.querySelector("nav");
-
-  nav.addEventListener("click", () => {
-    document.querySelector("#sidebar").classList.remove("visible");
-  });
-</script>

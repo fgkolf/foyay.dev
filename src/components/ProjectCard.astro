@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+const { url, frontmatter } = Astro.props;
+---
+
+<figure
+  class="project-card p-6 bordered col-span-2 relative group overflow-hidden bg-[var(--bg-secondary-color)]"
+>
+  <Image
+    class="h-auto max-w-full rounded-lg max-h-[30vh] w-full object-cover"
+    src={frontmatter.images[0].url}
+    alt={frontmatter.images[0].alt}
+  />
+  <figcaption
+    class="flex w-full p-3 absolute left-0 bg-slate-900/90 text-[var(--bg-secondary-color)] justify-between items-center bottom-0"
+  >
+    <div class="flex flex-col gap-y-2 font-semibold">
+      <p class="text-md">{frontmatter.title}</p>
+      <p class="text-xs text-[var(--highlight-color)]">
+        {frontmatter.tags.join(" • ")}
+      </p>
+    </div>
+  </figcaption>
+  <a href={url} class="absolute inset-0"></a>
+</figure>

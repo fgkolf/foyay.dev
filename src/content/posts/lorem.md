@@ -1,13 +1,12 @@
 ---
-layout: '../../layouts/PostLayout.astro'
 title: 'Destructuring in Javascript'
-date: 01-07-2024
+date: 2024-07-01
 description: A way to "unpack" values from arrays, properties from objects, or any other iterable, into distinct variables.
 author: 'fgkolf'
 readingTime: '3min'
 image:
-    url: '/olive-sieve.webp'
-    alt: 'An siege full of olives in a field.'
+  url: '/src/assets/posts/javascript-destructuring.webp'
+  alt: 'An siege full of olives in a field.'
 tags: ["javascript"]
 ---
 

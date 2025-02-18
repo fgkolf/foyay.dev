@@ -1,28 +1,26 @@
 ---
-layout: '../../layouts/ProjectLayout.astro'
 title: 'Munchkin Tracker'
-date: 06-10-2021
+date: 2021-10-06  
 description: 'A simple scoreboard app for Munchkin'
-
+tags: ["JavaScript", "React Native", "CSS"]
 images: [
   {
-    url: '/munchkin-tracker/logo.png',
+    url: '/src/assets/projects/munchkin-tracker/logo.png',
     alt: 'Munchkin tracker extension logo'
   },
   {
-    url: '/munchkin-tracker/player.png',
+    url: '/src/assets/projects/munchkin-tracker/player.png',
     alt: 'The munchkin tracker app in action.'
   },
   {
-    url: '/munchkin-tracker/menu.png',
+    url: '/src/assets/projects/munchkin-tracker/menu.png',
     alt: 'The munchkin tracker app menu.'
   },
   {
-    url: '/munchkin-tracker/end.png',
+    url: '/src/assets/projects/munchkin-tracker/end.png',
     alt: 'The munchkin tracker app announcing the winner.'
   } 
 ]
-tags: ["JavaScript", "React Native", "CSS"]
 ---
 
 A simple scoreboard app for [Munchkin](https://en.wikipedia.org/wiki/Munchkin_(card_game))

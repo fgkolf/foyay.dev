@@ -1,12 +1,16 @@
 ---
-const { url, frontmatter } = Astro.props.post;
+import { Image } from "astro:assets";
+
+const { url, frontmatter } = Astro.props;
 const publishDate = new Intl.DateTimeFormat("en-US", {
   dateStyle: "long",
 }).format(new Date(frontmatter.date));
 ---
 
-<a href={url} class="blog-post flex flex-col gap-1">
-  <img
+<div
+  class="post-card p-6 bordered relative flex flex-col gap-1 bg-[var(--bg-secondary-color)]"
+>
+  <Image
     class="rounded-lg"
     src={frontmatter.image.url}
     alt={frontmatter.image.alt}
@@ -25,4 +29,5 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
     {frontmatter.title}
   </h4>
   <p class="text-md text-justify">{frontmatter.description}</p>
-</a>
+  <a href={url} class="absolute inset-0"></a>
+</div>

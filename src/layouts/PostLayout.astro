@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
 
@@ -9,19 +10,23 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
 ---
 
 <Layout metaTitle={frontmatter.title}>
-  <div class="flex flex-col gap-2 text-center mb-8">
-    <h1 class="text-3xl font-bold">
-      {frontmatter.title}
-    </h1>
-    <p class="font-bold">
-      by <span class="text-[var(--highlight-color)]">{frontmatter.author}</span>
-    </p>
-    <p>
-      Posted on {publishDate}
-    </p>
+  <div class="p-[4vw] bordered bg-[var(--bg-secondary-color)]">
+    <div class="flex flex-col gap-2 text-center mb-8">
+      <h1 class="text-3xl font-bold">
+        {frontmatter.title}
+      </h1>
+      <p class="font-bold">
+        by <span class="text-[var(--highlight-color)]"
+          >{frontmatter.author}</span
+        >
+      </p>
+      <p>
+        Posted on {publishDate}
+      </p>
+    </div>
+    <Prose>
+      <Image src={frontmatter.image.url} alt={frontmatter.image.alt} />
+      <slot />
+    </Prose>
   </div>
-  <Prose>
-    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-    <slot />
-  </Prose>
 </Layout>

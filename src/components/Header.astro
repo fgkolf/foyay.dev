@@ -1,43 +1,31 @@
 ---
-import BurgerIcon from "./BurgerIcon.astro";
-import Separator from "./Separator.astro";
-const { headerTitle } = Astro.props;
+import MenuButton from "./MenuButton.astro";
+import Navigation from "./Navigation.astro";
+
+import { Image } from "astro:assets";
+import siteImage from "../assets/foyay.png";
+
+const { siteName } = Astro.props;
 ---
 
-<header>
-  <a href="/" class="py-4 flex items-center">
+<header
+  class="p-4 flex-row max-sm:bg-[var(--bg-secondary-color)] max-sm:border-b-[1vw] border-solid border-[var(--base-color)]"
+>
+  <div class="flex items-center justify-center">
+    <a href="/">
+      <h1 class="text-[7vw] sm:text-[5vw] font-semibold">
+        <Image
+          src={siteImage}
+          alt={siteName}
+          class="w-[35vw] sm:max-w-[15vw] border-none"
+        />
+      </h1>
+    </a>
     <div
-      id="menu-button"
-      class="fixed rounded-r-md sm:absolute z-10 bg-[var(--highlight-color)] size-[7vw] sm:size-[5vw] group flex items-center justify-center sm:pointer-events-none transition-all duration-700 my-3 mr-3"
+      class="sm:hidden absolute right-8 size-[10vw] group flex items-center justify-center"
     >
-      <BurgerIcon />
+      <MenuButton />
     </div>
-    <h1
-      class="text-[7vw] sm:text-[5vw] ml-[11vw] sm:ml-[9vw] font-semibold transition-all duration-700"
-    >
-      {headerTitle}
-    </h1>
-    <div
-      class="absolute size-[11vw] sm:size-[8vw] right-[9vw] sm:right-[7vw] animate-wiggle"
-    >
-      <img src="/favicon.svg" alt="Site logo" />
-    </div>
-  </a>
-  <Separator />
+  </div>
+  <Navigation />
 </header>
-
-<script>
-  const sidebar = document.querySelector("#sidebar");
-  const menuButton = document.querySelector("#menu-button");
-  const overlay = document.querySelector(".overlay");
-
-  menuButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    sidebar.classList.toggle("visible");
-  });
-
-  overlay.addEventListener("click", (e) => {
-    e.preventDefault();
-    sidebar.classList.remove("visible");
-  });
-</script>

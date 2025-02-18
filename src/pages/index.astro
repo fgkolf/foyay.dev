@@ -1,12 +1,16 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Prose from "../components/Prose.astro";
+import meImage from "../assets/me.jpg";
 ---
 
 <Layout>
-  <div class="flex flex-col gap-6 justify-center">
+  <div
+    class="flex flex-col gap-6 justify-center p-[4vw] bordered bg-[var(--bg-secondary-color)]"
+  >
     <Prose>
-      <img alt="That's me" src="/me.jpg" />
+      <Image alt="That's me" src={meImage} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac urna
         in nisi malesuada suscipit et vel magna. Donec nec turpis in lectus

@@ -8,9 +8,10 @@
 }
 
 :root {
-    --bg-color:#f8f5f2;
-    --base-color: #232323;
-    --highlight-color: #078080;
+    --bg-color:#f9f28d;
+    --bg-secondary-color: #f8f5f2;
+    --base-color: #000;
+    --highlight-color: #57a56f;
     --swiper-navigation-color: var(--highlight-color);
     --swiper-pagination-color: var(--highlight-color);
 }
@@ -29,8 +30,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: Manrope;
+    src: url('fonts/Manrope/Manrope-ExtraBold.ttf') format('truetype');
+    font-weight: 800; /* Bold weight */
+    font-style: normal;
+}
+
 html {
     background-color: var(--bg-color);
+    color: var(--base-color);
     font-family: Manrope, serif;
 }
 
@@ -50,38 +59,40 @@ pre {
     word-wrap: break-word;
 }
 
-.blog-post:hover img,
-.project-preview:hover {
+img {
+    border-radius: 0.5rem;
+    border: 4px solid var(--base-color);
+}
+
+.bordered {
+    border-radius: 0.5rem;
+    border: 4px solid var(--base-color);
+    border-bottom-width: 8px;
+}
+
+.social img:hover {
+    filter: invert(57%) sepia(45%) saturate(406%) hue-rotate(86deg) brightness(92%) contrast(87%);
+}
+
+.post-card:hover img,
+.project-card:hover {
     transform: scale(1.01);
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 @layer utilities {
-    .mobile-sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-        transform: translateX(-100%);
-        transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-        background: rgb(255 255 255 / 40%);
-        box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-        backdrop-filter: blur(10px);
+    .mobile-nav {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition-duration: 0.25s;
+        transition-property: max-height, opacity;
+        transition-timing-function: ease-out;
     }
 
-    .mobile-sidebar.visible {
-        transform: translateX(0);
-    }
-
-    .overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 1;
-        transform: translateX(+100%);
-    }
-
-    .overlay.visible {
-        transform: translateX(0);
+    .mobile-nav.visible {
+        opacity: 1;
+        max-height: 500px;
+        transition-timing-function: ease-in;
     }
 }
