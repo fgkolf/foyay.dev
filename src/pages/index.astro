@@ -6,12 +6,14 @@ import meImage from "../assets/me.jpg";
 ---
 
 <Layout>
-  <div
-    class="flex flex-col gap-6 justify-center p-[4vw] bordered bg-[var(--bg-secondary-color)]"
-  >
+  <div class="p-[4vw] bordered bg-[var(--bg-secondary-color)]">
     <Prose>
-      <Image alt="That's me" src={meImage} />
-      <p>
+      <Image
+        class="sm:float-left sm:w-1/2 sm:mr-6 sm:mb-0 max-sm:mb-6"
+        alt="That's me"
+        src={meImage}
+      />
+      <p class="sm:float-none sm:mt-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac urna
         in nisi malesuada suscipit et vel magna. Donec nec turpis in lectus
         malesuada viverra convallis ac eros. In eget orci molestie, dictum lacus
