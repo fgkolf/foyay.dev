@@ -1,0 +1,51 @@
+<div
+  class="up-arrow-wrapper hidden fixed right-5 bottom-5 bordered bg-[var(--bg-secondary-color)] w-14 h-14 flex items-center justify-center"
+>
+  <button
+    type="button"
+    class="h-full w-full rotate-180 z-10 flex items-center justify-center"
+  >
+    <img class="h-8 border-none" src="/arrow.svg" alt="arrow" />
+  </button>
+  <span class="up-arrow-fill rounded-sm rounded-b-none"></span>
+</div>
+
+<script>
+  if (document.body.scrollHeight > 2000) {
+    function getScrollPercent() {
+      const h = document.documentElement,
+        b = document.body,
+        st = "scrollTop",
+        sh = "scrollHeight";
+      return ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+    }
+
+    document.documentElement.style.setProperty(
+      "--scroll-percentage",
+      getScrollPercent().toString(),
+    );
+
+    const upArrow = document.querySelector(".up-arrow-wrapper");
+    const upArrowButton = upArrow.querySelector("button");
+    upArrowButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+    document.addEventListener("scroll", () => {
+      const scrollPercent = getScrollPercent();
+      if (scrollPercent > 20) {
+        upArrow.classList.remove("hidden");
+      } else {
+        upArrow.classList.add("hidden");
+      }
+
+      document.documentElement.style.setProperty(
+        "--scroll-percentage",
+        getScrollPercent().toString(),
+      );
+    });
+  }
+</script>

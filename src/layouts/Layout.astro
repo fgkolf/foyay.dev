@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import UpArrow from "../components/UpArrow.astro";
 import backgroundNoise from "../assets/noise.webp";
 
 const siteName = "foyay";
@@ -25,6 +26,7 @@ const title = tabTitle?.concat(` | ${siteName}`) || siteName;
       <div class="m-[4vw]">
         <slot />
       </div>
+      <UpArrow />
     </main>
     <Footer />
   </body>

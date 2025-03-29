@@ -14,6 +14,7 @@
     --highlight-color: #57a56f;
     --swiper-navigation-color: var(--highlight-color);
     --swiper-pagination-color: var(--highlight-color);
+    --scroll-percentage: 0
 }
 
 @font-face {
@@ -78,6 +79,13 @@ img {
 .project-card:hover {
     transform: scale(1.01);
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.up-arrow-fill {
+    position: absolute;
+    inset: 0;
+    bottom: calc(100% - var(--scroll-percentage) * 1%);
+    background-color: var(--highlight-color)
 }
 
 @layer utilities {
