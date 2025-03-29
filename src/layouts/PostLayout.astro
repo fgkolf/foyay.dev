@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
+import Head from "../components/Head.astro";
 
 const { frontmatter } = Astro.props;
 const publishDate = new Intl.DateTimeFormat("en-US", {
@@ -10,6 +11,14 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
 ---
 
 <Layout metaTitle={frontmatter.title}>
+  <Head
+    slot="head"
+    title={frontmatter.title}
+    description={frontmatter.description}
+    image={frontmatter.image.url.src}
+    keywords={frontmatter.tags}
+    type="article"
+  />
   <div class="p-[4vw] bordered bg-[var(--bg-secondary-color)]">
     <div class="flex flex-col gap-2 text-center mb-8">
       <h1 class="text-3xl font-bold">

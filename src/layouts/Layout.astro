@@ -16,6 +16,7 @@ const title = tabTitle?.concat(` | ${siteName}`) || siteName;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <slot name="head" />
   </head>
   <body style={`background-image: url(${backgroundNoise.src});`}>
     <Header siteName={siteName} />

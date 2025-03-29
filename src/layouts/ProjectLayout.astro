@@ -5,11 +5,19 @@ import "swiper/css/navigation";
 import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
+import Head from "../components/Head.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <Layout metaTitle={frontmatter.title}>
+  <Head
+    slot="head"
+    title={frontmatter.title}
+    description={frontmatter.description}
+    image={frontmatter.images[0].url.src}
+    keywords={frontmatter.tags}
+  />
   <div
     class="flex flex-col gap-4 text-center mb-8 p-[4vw] bordered bg-[var(--bg-secondary-color)]"
   >
@@ -25,7 +33,11 @@ const { frontmatter } = Astro.props;
         {
           frontmatter.images.map((image) => (
             <div class="swiper-slide">
-              <Image class="rounded-lg" src={image.url} alt={image.alt} />
+              <Image
+                class="rounded-lg select-none"
+                src={image.url}
+                alt={image.alt}
+              />
             </div>
           ))
         }

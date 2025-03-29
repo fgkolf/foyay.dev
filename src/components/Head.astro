@@ -1,0 +1,10 @@
+---
+const { title, description, image, keywords, type = "website" } = Astro.props;
+---
+
+<meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{image && <meta property="og:image" content={image} />}
+<meta property="og:type" content={type} />
