@@ -61,13 +61,13 @@ pre {
 
 img {
     border-radius: 0.5rem;
-    border: 4px solid var(--base-color);
+    border: 3px solid var(--base-color);
 }
 
 .bordered {
     border-radius: 0.5rem;
-    border: 4px solid var(--base-color);
-    border-bottom-width: 8px;
+    border: 3px solid var(--base-color);
+    border-bottom-width: 6px;
 }
 
 .social img:hover {

@@ -1,5 +1,6 @@
 ---
 import Social from "./Social.astro";
+
 const linkClass =
   "hover:text-[var(--highlight-color)] font-extrabold transition-colors duration-300";
 ---
@@ -8,20 +9,26 @@ const linkClass =
   id="navigation"
   class="flex align-center justify-center max-sm:mobile-nav transition-colors duration-300"
 >
-  <ul
-    class="bordered mt-4 text-xl px-6 py-4 flex gap-4 bg-[var(--bg-secondary-color)]"
+  <div
+    class="relative bordered mt-4 text-xl px-8 sm:px-11 py-4 bg-[var(--bg-secondary-color)]"
   >
-    <li>
-      <a href="/" class={linkClass}>info</a>
-    </li>
-    <li>
-      <a href="/blog" class={linkClass}>blog</a>
-    </li>
-    <li>
-      <a href="/projects" class={linkClass}>projects</a>
-    </li>
-    <li class="pl-4 border-l-4 border-double border-[var(--base-color)]">
-      <Social />
-    </li>
-  </ul>
+    <span class="w-3 sm:w-5 absolute h-1 left-0 top-1/2 bg-[var(--base-color)]"
+    ></span>
+    <ul class="flex gap-4">
+      <li>
+        <a href="/" class={linkClass}>info</a>
+      </li>
+      <li>
+        <a href="/blog" class={linkClass}>blog</a>
+      </li>
+      <li>
+        <a href="/projects" class={linkClass}>projects</a>
+      </li>
+      <li>
+        <Social />
+      </li>
+    </ul>
+    <span class="w-3 sm:w-5 absolute h-1 right-0 top-1/2 bg-[var(--base-color)]"
+    ></span>
+  </div>
 </nav>
