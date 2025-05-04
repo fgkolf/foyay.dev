@@ -7,7 +7,9 @@ import { Image } from "astro:assets";
 const iconClass = "rounded-full border-2 transition-filter duration-300";
 ---
 
-<ul class="social flex justify-center items-center h-full gap-2">
+<ul
+  class="social inline-flex justify-center items-center h-full gap-2 not-prose"
+>
   <li class="w-6">
     <a href="https://github.com/fgkolf" target="_blank">
       <Image class={iconClass} src={githubImage} alt="github" />

@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Prose from "../components/Prose.astro";
 import meImage from "../assets/me.jpg";
+import Social from "../components/Social.astro";
 ---
 
 <Layout>
@@ -13,40 +14,21 @@ import meImage from "../assets/me.jpg";
         alt="That's me"
         src={meImage}
       />
-      <p class="sm:float-none sm:mt-0">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac urna
-        in nisi malesuada suscipit et vel magna. Donec nec turpis in lectus
-        malesuada viverra convallis ac eros. In eget orci molestie, dictum lacus
-        dignissim, viverra metus. Sed tincidunt, leo ut condimentum elementum,
-        dui odio sollicitudin lectus, sit amet pulvinar urna nunc quis tellus.
-        Donec a rutrum lorem, vel suscipit lacus. Curabitur libero elit, mattis
-        ac pharetra vel, posuere vel ipsum. Donec lacinia in nunc quis eleifend.
-        Nullam eros libero, mollis quis consequat id, suscipit quis libero.
-        Pellentesque habitant morbi tristique senectus et netus et malesuada
-        fames ac turpis egestas. Morbi hendrerit malesuada nunc vel finibus.
-        Aenean gravida odio ante. Sed efficitur lectus tortor, quis pellentesque
-        elit imperdiet eget. Phasellus sed leo id arcu mattis fermentum eu ac
-        dui. Vestibulum eget nisi non purus lobortis dapibus. Aliquam diam mi,
-        dictum a est ac, vehicula semper turpis. Curabitur ac tellus venenatis,
-        suscipit eros sit amet, rhoncus dolor. Nam varius laoreet facilisis.
-        Donec vitae facilisis mauris. Etiam vitae suscipit urna, ac tincidunt
-        velit. Donec posuere mattis rhoncus. Fusce vehicula elementum varius.
-        Integer sodales ipsum orci, vel efficitur mauris porta in. Vestibulum
-        cursus nec dolor quis ultrices. Nunc ornare feugiat mi ac aliquam.
-        Praesent eu odio vel lorem porttitor rutrum. Cras et urna vel mauris
-        vehicula porta vitae a erat. Sed a lacinia arcu, eu fringilla mi.
-        Aliquam convallis sem lacinia, ultricies nibh id, vehicula lacus. Etiam
-        in elit dui. Quisque turpis lacus, mattis at pharetra sit amet,
-        tincidunt sit amet arcu. Fusce et ante quis sapien ornare facilisis sit
-        amet nec elit. Morbi porta vehicula convallis. Ut eros risus, pretium eu
-        pharetra sodales, scelerisque quis nulla. Maecenas a imperdiet tellus.
-        Pellentesque venenatis nisl eu magna bibendum accumsan. Ut aliquam eros
-        venenatis congue tempus. Donec placerat, ante non vehicula sodales,
-        nulla urna maximus erat, a semper ipsum urna sit amet lacus. Suspendisse
-        sapien dui, blandit eu libero quis, vestibulum interdum mauris. Nam
-        justo sapien, efficitur vitae lacus ac, molestie placerat dui. Sed
-        accumsan ante a facilisis sollicitudin.
-      </p>
+      <section class="sm:float-none sm:mt-0">
+        <p>
+          Hey 👋, I'm a software engineer based in Athens with experience in
+          building things on the web and beyond. I am currently working at
+          Skroutz.
+        </p>
+        <p>
+          This is a place where I share ideas, experiments, and things I find
+          interesting. It also demonstrates some of my work and the stuff i
+          am thrilled or curious about.
+        </p>
+        <div class="flex items-center gap-2">
+          You can also find me here: <Social />
+        </div>
+      </section>
     </Prose>
-  </div></Layout
->
+  </div>
+</Layout>
