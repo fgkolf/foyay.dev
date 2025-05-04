@@ -3,7 +3,7 @@ title: 'Destructuring in Javascript'
 date: 2024-01-07
 description: A way to "unpack" values from arrays, properties from objects, or any other iterable, into distinct variables.
 author: 'fgkolf'
-readingTime: '3min'
+readingTime: '5min'
 tags: ["javascript"]
 image:
     url: '/src/assets/posts/javascript-destructuring.webp'
