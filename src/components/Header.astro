@@ -1,5 +1,4 @@
 ---
-import MenuButton from "./MenuButton.astro";
 import Navigation from "./Navigation.astro";
 
 import { Image } from "astro:assets";
@@ -21,11 +20,6 @@ const { siteName } = Astro.props;
         />
       </h1>
     </a>
-    <div
-      class="sm:hidden absolute right-8 size-[10vw] group flex items-center justify-center"
-    >
-      <MenuButton />
-    </div>
   </div>
   <Navigation />
 </header>

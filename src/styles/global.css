@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* noinspection ALL */
 @view-transition {
     navigation: auto;
@@ -86,21 +82,4 @@ img {
     inset: 0;
     bottom: calc(100% - var(--scroll-percentage) * 1%);
     background-color: var(--highlight-color)
-}
-
-@layer utilities {
-    .mobile-nav {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        transition-duration: 0.25s;
-        transition-property: max-height, opacity;
-        transition-timing-function: ease-out;
-    }
-
-    .mobile-nav.visible {
-        opacity: 1;
-        max-height: 500px;
-        transition-timing-function: ease-in;
-    }
 }
