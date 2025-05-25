@@ -2,7 +2,7 @@
 import Social from "./Social.astro";
 
 const linkClass =
-  "hover:text-[var(--highlight-color)] font-extrabold transition-colors duration-300";
+  "hover:text-[var(--highlight-color)] font-bold transition-colors duration-300";
 ---
 
 <nav
@@ -12,7 +12,7 @@ const linkClass =
   <div
     class="relative bordered mt-4 text-xl px-8 sm:px-11 py-4 bg-[var(--bg-secondary-color)]"
   >
-    <span class="w-3 sm:w-5 absolute h-1 left-0 top-1/2 bg-[var(--base-color)]"
+    <span class="w-3 sm:w-5 absolute h-1 left-0 top-1/2 bg-[var(--base-color)] -translate-y-1/2"
     ></span>
     <ul class="flex gap-4">
       <li>
@@ -28,7 +28,7 @@ const linkClass =
         <Social />
       </li>
     </ul>
-    <span class="w-3 sm:w-5 absolute h-1 right-0 top-1/2 bg-[var(--base-color)]"
+    <span class="w-3 sm:w-5 absolute h-1 right-0 top-1/2 bg-[var(--base-color)] -translate-y-1/2"
     ></span>
   </div>
 </nav>

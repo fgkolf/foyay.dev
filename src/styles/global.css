@@ -1,43 +1,14 @@
+@import url('./fonts.css');
+@import url('./variables.css');
+
 /* noinspection ALL */
 @view-transition {
     navigation: auto;
 }
 
-:root {
-    --bg-color:#f9f28d;
-    --bg-secondary-color: #f8f5f2;
-    --base-color: #000;
-    --highlight-color: #57a56f;
-    --swiper-navigation-color: var(--highlight-color);
-    --swiper-pagination-color: var(--highlight-color);
-    --scroll-percentage: 0
-}
-
-@font-face {
-    font-family: Manrope;
-    src: url('fonts/Manrope/Manrope-Regular.ttf') format('truetype');
-    font-weight: 400; /* Normal weight */
-    font-style: normal;
-}
-
-@font-face {
-    font-family: Manrope;
-    src: url('fonts/Manrope/Manrope-Bold.ttf') format('truetype');
-    font-weight: 700; /* Bold weight */
-    font-style: normal;
-}
-
-@font-face {
-    font-family: Manrope;
-    src: url('fonts/Manrope/Manrope-ExtraBold.ttf') format('truetype');
-    font-weight: 800; /* Bold weight */
-    font-style: normal;
-}
-
 html {
     background-color: var(--bg-color);
     color: var(--base-color);
-    font-family: Manrope, serif;
 }
 
 body {
@@ -68,7 +39,7 @@ img {
 }
 
 .social img:hover {
-    filter: invert(57%) sepia(45%) saturate(406%) hue-rotate(86deg) brightness(92%) contrast(87%);
+    filter: invert(57%) sepia(73%) saturate(1910%) hue-rotate(352deg) brightness(100%) contrast(109%);
 }
 
 .post-card:hover img,

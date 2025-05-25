@@ -8,15 +8,15 @@ const { siteName } = Astro.props;
 ---
 
 <header
-  class="p-4 flex-row max-sm:bg-[var(--bg-secondary-color)] max-sm:border-b-[1vw] border-solid border-[var(--base-color)]"
+  class="p-4 flex-row"
 >
   <div class="flex items-center justify-center">
     <a href="/">
-      <h1 class="text-[7vw] sm:text-[5vw] font-semibold">
+      <h1 class="text-[7vw] sm:text-[5vw]">
         <Image
           src={siteImage}
           alt={siteName}
-          class="w-[35vw] sm:max-w-[15vw] border-none"
+          class="w-[40vw] sm:max-w-[20vw] border-none text-[var(--highlight-color)]"
         />
       </h1>
     </a>

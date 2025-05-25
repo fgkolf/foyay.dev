@@ -35,16 +35,20 @@
     });
 
     document.addEventListener("scroll", () => {
-      const scrollPercent = getScrollPercent();
+      let scrollPercent = getScrollPercent();
       if (scrollPercent > 20) {
         upArrow.classList.remove("hidden");
       } else {
         upArrow.classList.add("hidden");
       }
 
+      if (scrollPercent > 95) {
+        scrollPercent = 100;
+      }
+
       document.documentElement.style.setProperty(
         "--scroll-percentage",
-        getScrollPercent().toString(),
+        scrollPercent.toString(),
       );
     });
   }

@@ -3,31 +3,37 @@ import { Image } from "astro:assets";
 
 const { url, frontmatter } = Astro.props;
 const publishDate = new Intl.DateTimeFormat("en-US", {
-  dateStyle: "long",
+  dateStyle: "medium",
 }).format(new Date(frontmatter.date));
 ---
 
 <div
-  class="post-card p-6 bordered relative flex flex-col gap-1 bg-[var(--bg-secondary-color)]"
+  class="post-card bordered gap-1 bg-[var(--bg-secondary-color)]"
 >
+  <div class="flex font-bold gap-2 justify-center items-center p-6 border-b-[3px] border-[var(--base-color)]">
+    <div class="relative flex gap-2 items-center pr-7">
+      <img class="size-5 border-none rounded-none" src="/calendar.svg" alt="calendar" />
+      <time>{publishDate}</time>
+      <span class="w-5 absolute h-1 right-0 top-1/2 -translate-y-1/2 bg-[var(--highlight-color)]"
+      ></span>
+    </div>
+    <span>{frontmatter.tags.join(",")}</span
+    >
+  </div>
+  <div
+    class="p-6 relative flex flex-col gap-1"
+  >
   <Image
     class="rounded-lg"
     src={frontmatter.image.url}
     alt={frontmatter.image.alt}
   />
-  <div class="text-sm flex justify-between">
-    <div>
-      <time>{publishDate}</time>
-      <span> • </span>
-      <span>{frontmatter.readingTime}</span>
-    </div>
-    <span class="text-[var(--highlight-color)]"
-      >{frontmatter.tags.join(",")}</span
-    >
-  </div>
-  <h4 class="font-semibold text-xl">
+  <h4 class="font-bold text-xl">
     {frontmatter.title}
   </h4>
+
   <p class="text-md text-justify">{frontmatter.description}</p>
+  <span class="text-sm">Reading time: <span class="font-bold">{frontmatter.readingTime}</span></span>
   <a href={url} class="absolute inset-0"></a>
+</div>
 </div>

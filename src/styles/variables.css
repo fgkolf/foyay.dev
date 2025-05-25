@@ -1,0 +1,9 @@
+:root {
+    --bg-color:#004643;
+    --bg-secondary-color: #abd1c6;
+    --base-color: #001e1d;
+    --highlight-color: #ff8906;
+    --swiper-navigation-color: var(--highlight-color);
+    --swiper-pagination-color: var(--highlight-color);
+    --scroll-percentage: 0
+}
