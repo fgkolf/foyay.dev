@@ -1,9 +1,11 @@
 @import url('./fonts.css');
 @import url('./variables.css');
 
-/* noinspection ALL */
-@view-transition {
-    navigation: auto;
+@media (prefers-reduced-motion: no-preference) {
+    /* noinspection ALL */
+    @view-transition {
+        navigation: auto;
+    }
 }
 
 html {
