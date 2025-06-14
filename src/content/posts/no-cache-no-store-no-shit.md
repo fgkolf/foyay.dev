@@ -4,7 +4,7 @@ date: 2025-05-01
 description: A guide on how to finally stop caching that damn JSON response. When to use each of them and how to distinguish.
 author: 'fgkolf'
 readingTime: '3min'
-tags: ["http"]
+tags: ["http", "web"]
 image:
     url: '/src/assets/posts/no-cache-no-store-no-shit.png'
     alt: 'A belt with suspenders'
