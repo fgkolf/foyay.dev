@@ -4,6 +4,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects");
+projects.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 const pageTitle = "Projects";
 ---
 
