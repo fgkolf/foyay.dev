@@ -1,0 +1,75 @@
+---
+const { headings } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{tocHeadings.length > 2 && (
+  <nav id="toc" class="hidden xl:block sticky top-8 bordered p-4 bg-(--bg-secondary-color) text-sm max-h-[calc(100vh-4rem)] overflow-y-auto">
+    <p class="font-bold mb-3">Contents</p>
+    <ul class="flex flex-col gap-2">
+      {tocHeadings.map((heading) => (
+        <li class={heading.depth === 3 ? 'pl-3' : ''}>
+          <a
+            href={`#${heading.slug}`}
+            data-toc-link={heading.slug}
+            data-text={heading.text}
+            class="toc-link opacity-70 hover:opacity-100 hover:text-(--highlight-color) transition-all"
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<style>
+  .toc-link {
+    display: inline-block;
+  }
+  .toc-link::before {
+    content: attr(data-text);
+    display: block;
+    font-weight: 700;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .toc-link.active {
+    font-weight: 700;
+    opacity: 1;
+    color: var(--base-color);
+  }
+</style>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  if (links.length > 0) {
+    const slugs = Array.from(links).map((a) => a.dataset.tocLink!);
+    const headings = slugs
+      .map((slug) => document.getElementById(slug))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const setActive = (slug: string | null) => {
+      links.forEach((link) => {
+        link.classList.toggle('active', link.dataset.tocLink === slug);
+      });
+    };
+
+    const update = () => {
+      const offset = 120;
+      let current: HTMLElement | null = null;
+      for (const h of headings) {
+        if (h.getBoundingClientRect().top - offset <= 0) {
+          current = h;
+        } else {
+          break;
+        }
+      }
+      setActive(current ? current.id : headings[0]?.id ?? null);
+    };
+
+    document.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>

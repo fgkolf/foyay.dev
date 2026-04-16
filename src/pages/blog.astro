@@ -7,6 +7,8 @@ import { getCollection } from "astro:content";
 const posts = await getCollection("posts");
 const pageTitle = "Blog";
 posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 ---
 
 <Layout pageTitle={pageTitle}>
@@ -15,13 +17,42 @@ posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
     title="Blog | foyay"
     description="Articles on web development, JavaScript, and software engineering by fgkolf."
   />
+
+  <div class="flex flex-wrap gap-2 mb-8">
+    <button class="tag-pill tag-filter active" data-tag="all">All</button>
+    {allTags.map((tag) => (
+      <button class="tag-pill tag-filter" data-tag={tag}>{tag}</button>
+    ))}
+  </div>
+
   <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
     {
       posts.map((post) => (
-        <li>
+        <li data-tags={post.data.tags.join(",")}>
           <PostCard url={`/posts/${post.id}`} frontmatter={post.data} />
         </li>
       ))
     }
   </ul>
 </Layout>
+
+<script>
+  const filters = document.querySelectorAll(".tag-filter");
+  const items = document.querySelectorAll("ul li[data-tags]");
+
+  filters.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filters.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const tag = btn.dataset.tag;
+      items.forEach((item) => {
+        if (tag === "all" || item.dataset.tags?.split(",").includes(tag)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+</script>

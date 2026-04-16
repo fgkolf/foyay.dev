@@ -1,39 +1,52 @@
 ---
 import { Image } from "astro:assets";
 
-const { url, frontmatter } = Astro.props;
+const { url, frontmatter, compact = false } = Astro.props;
 const publishDate = new Intl.DateTimeFormat("en-US", {
   dateStyle: "medium",
 }).format(new Date(frontmatter.date));
 ---
 
-<div
-  class="post-card bordered gap-1 bg-[var(--bg-secondary-color)]"
->
-  <div class="flex font-bold gap-2 justify-center items-center p-6 border-b-[3px] border-[var(--base-color)]">
-    <div class="relative flex gap-2 items-center pr-7">
-      <img class="size-5 border-none rounded-none" src="/calendar.svg" alt="calendar" />
+<div class="post-card bordered gap-1 bg-(--bg-secondary-color)">
+  <div
+    class={`flex font-bold gap-2 justify-center items-center border-b-[3px] border-(--base-color) ${compact ? "p-3 text-xs flex-wrap" : "p-6"}`}
+  >
+    <div
+      class={`relative flex items-center ${compact ? "gap-1 pr-5" : "gap-2 pr-7"}`}
+    >
+      <img
+        class={`border-none rounded-none ${compact ? "size-4" : "size-5"}`}
+        src="/calendar.svg"
+        alt="calendar"
+      />
       <time>{publishDate}</time>
-      <span class="w-5 absolute h-1 right-0 top-1/2 -translate-y-1/2 bg-[var(--highlight-color)]"
+      <span
+        class={`absolute h-1 right-0 top-1/2 -translate-y-1/2 bg-(--highlight-color) ${compact ? "w-3" : "w-5"}`}
       ></span>
     </div>
-    <span>{frontmatter.tags.join(",")}</span
-    >
+    <div class="flex gap-1 flex-wrap">
+      {frontmatter.tags.map((tag) => <span class="tag-pill">{tag}</span>)}
+    </div>
   </div>
-  <div
-    class="p-6 relative flex flex-col gap-1"
-  >
-  <Image
-    class="rounded-lg"
-    src={frontmatter.image.url}
-    alt={frontmatter.image.alt}
-  />
-  <h4 class="font-bold text-xl">
-    {frontmatter.title}
-  </h4>
-
-  <p class="text-md text-justify">{frontmatter.description}</p>
-  <span class="text-sm">Reading time: <span class="font-bold">{frontmatter.readingTime}</span></span>
-  <a href={url} class="absolute inset-0"></a>
-</div>
+  <div class={`relative flex flex-col gap-2 ${compact ? "p-4" : "p-6"}`}>
+    <Image
+      class="rounded-lg"
+      src={frontmatter.image.url}
+      alt={frontmatter.image.alt}
+    />
+    <h4 class={`font-bold ${compact ? "text-base" : "text-xl"}`}>
+      {frontmatter.title}
+    </h4>
+    <p class={compact ? "text-sm line-clamp-2" : "text-md text-justify"}>
+      {frontmatter.description}
+    </p>
+    {
+      !compact && (
+        <span class="text-sm">
+          Reading time: <span class="font-bold">{frontmatter.readingTime}</span>
+        </span>
+      )
+    }
+    <a href={url} class="absolute inset-0"></a>
+  </div>
 </div>

@@ -20,6 +20,7 @@ body {
     margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    overflow-x: hidden;
 }
 
 footer {
@@ -35,6 +36,8 @@ pre {
     img {
         border-radius: 0.5rem;
         border: 3px solid var(--base-color);
+        max-width: 100%;
+        height: auto;
     }
 }
 
@@ -59,4 +62,49 @@ pre {
     inset: 0;
     bottom: calc(100% - var(--scroll-percentage) * 1%);
     background-color: var(--highlight-color)
+}
+
+.tag-pill {
+    border: 2px solid var(--base-color);
+    border-bottom-width: 3px;
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.tag-filter {
+    cursor: pointer;
+}
+
+.tag-pill:hover,
+.tag-filter.active {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    color: var(--bg-color);
+}
+
+.code-block-wrapper {
+    position: relative;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--bg-secondary-color);
+    border: 2px solid var(--base-color);
+    border-bottom-width: 3px;
+    border-radius: 0.375rem;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.code-block-wrapper:hover .copy-btn {
+    opacity: 1;
 }

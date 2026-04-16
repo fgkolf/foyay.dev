@@ -10,7 +10,7 @@ image:
     alt: 'A hand pressing a red abort button.'
 ---
 
-### What is `AbortController`?
+### What is an `AbortController`?
 
 `AbortController` is a browser API ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)) that allows you to create a signal (`AbortSignal`) and pass to certain APIs like `fetch`, `addEventListener`, and more. Calling `.abort()` on the controller triggers an "abort" signal, which notifies any listeners or handlers connected to that signal to cancel their operation.
 

@@ -2,18 +2,38 @@
 import { getCollection, render } from "astro:content";
 import PostLayout from "../../layouts/PostLayout.astro";
 
-// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  return posts.map((post) => ({
+  posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+  return posts.map((post, index) => ({
     params: { slug: post.id },
-    props: { post },
+    props: {
+      post,
+      prev: posts[index + 1] ?? null,
+      next: posts[index - 1] ?? null,
+    },
   }));
 }
-const { post } = Astro.props;
-const { Content } = await render(post);
+
+const { post, prev, next } = Astro.props;
+const { Content, headings } = await render(post);
+
+const allPosts = await getCollection("posts");
+const relatedPosts = allPosts
+  .filter(
+    (p) =>
+      p.id !== post.id &&
+      p.data.tags.some((tag) => post.data.tags.includes(tag)),
+  )
+  .slice(0, 3);
 ---
 
-<PostLayout frontmatter={post.data}>
+<PostLayout
+  frontmatter={post.data}
+  headings={headings}
+  prev={prev}
+  next={next}
+  relatedPosts={relatedPosts}
+>
   <Content />
 </PostLayout>

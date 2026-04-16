@@ -4,11 +4,14 @@ import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
 import Head from "../components/Head.astro";
 import JsonLd from "../components/JsonLd.astro";
+import TableOfContents from "../components/TableOfContents.astro";
+import PostCard from "../components/PostCard.astro";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, headings = [], prev = null, next = null, relatedPosts = [] } = Astro.props;
 const publishDate = new Intl.DateTimeFormat("en-US", {
   dateStyle: "long",
 }).format(new Date(frontmatter.date));
+const hasToc = headings.filter((h: any) => h.depth === 2 || h.depth === 3).length > 2;
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -41,21 +44,85 @@ const articleSchema = {
     type="article"
   />
   <JsonLd slot="head" schema={articleSchema} />
-  <div class="p-[4vw] bordered bg-(--bg-secondary-color)">
-    <div class="flex flex-col gap-2 text-center mb-8">
-      <h1 class="text-3xl font-bold">
-        {frontmatter.title}
-      </h1>
-      <p class="font-bold">
-        by <span class="text-(--highlight-color)">{frontmatter.author}</span>
-      </p>
-      <p>
-        Posted on {publishDate}
-      </p>
+
+  <div class="xl:flex xl:gap-8 xl:items-start xl:justify-center">
+    <div class="flex flex-col gap-10 min-w-0 xl:max-w-[830px] xl:w-full">
+      <article class="p-[4vw] bordered bg-(--bg-secondary-color) min-w-0 max-w-full overflow-hidden">
+        <div class="flex flex-col gap-2 text-center mb-8">
+          <h1 class="text-3xl font-bold">
+            {frontmatter.title}
+          </h1>
+          <p class="font-bold">
+            by <span class="text-(--highlight-color)">{frontmatter.author}</span>
+          </p>
+          <p>Posted on {publishDate}</p>
+          <div class="flex flex-wrap gap-2 justify-center mt-1">
+            {frontmatter.tags.map((tag: string) => (
+              <span class="tag-pill">{tag}</span>
+            ))}
+          </div>
+        </div>
+        <Prose>
+          <Image src={frontmatter.image.url} alt={frontmatter.image.alt} />
+          <slot />
+        </Prose>
+
+        {(prev || next) && (
+          <nav class={`flex flex-col sm:flex-row mt-8 pt-6 border-t-[3px] border-(--base-color) gap-3 ${prev && next ? 'sm:justify-between' : !prev ? 'items-end sm:justify-end' : ''}`}>
+            {prev && (
+              <a href={`/posts/${prev.id}`} class="group min-w-0">
+                <span class="text-xs font-bold text-(--highlight-color)">← Previous</span>
+                <p class="font-bold truncate group-hover:underline">{prev.data.title}</p>
+              </a>
+            )}
+            {next && (
+              <a href={`/posts/${next.id}`} class="group min-w-0 sm:text-right self-end sm:self-auto">
+                <span class="text-xs font-bold text-(--highlight-color)">Next →</span>
+                <p class="font-bold truncate group-hover:underline">{next.data.title}</p>
+              </a>
+            )}
+          </nav>
+        )}
+      </article>
+
+      {relatedPosts.length > 0 && (
+        <section>
+          <h2 class="text-2xl font-bold mb-6">Related posts</h2>
+          <ul class="grid gap-6 grid-cols-2 sm:grid-cols-3">
+            {relatedPosts.map((post: any) => (
+              <li>
+                <PostCard url={`/posts/${post.id}`} frontmatter={post.data} compact />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
-    <Prose>
-      <Image src={frontmatter.image.url} alt={frontmatter.image.alt} />
-      <slot />
-    </Prose>
+
+    {hasToc && <TableOfContents headings={headings} />}
   </div>
 </Layout>
+
+<script>
+  document.querySelectorAll("pre").forEach((pre) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "code-block-wrapper";
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    const btn = document.createElement("button");
+    btn.textContent = "Copy";
+    btn.className = "copy-btn";
+    btn.setAttribute("type", "button");
+    wrapper.appendChild(btn);
+
+    btn.addEventListener("click", async () => {
+      const code = pre.querySelector("code")?.textContent ?? pre.textContent ?? "";
+      await navigator.clipboard.writeText(code);
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy";
+      }, 2000);
+    });
+  });
+</script>
