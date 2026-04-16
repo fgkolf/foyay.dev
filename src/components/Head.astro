@@ -1,10 +1,19 @@
 ---
 const { title, description, image, keywords, type = "website" } = Astro.props;
+const canonicalUrl = Astro.url.href;
+const siteName = "foyay";
 ---
 
+<link rel="canonical" href={canonicalUrl} />
 <meta name="description" content={description} />
 {keywords && <meta name="keywords" content={keywords} />}
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content={siteName} />
 {image && <meta property="og:image" content={image} />}
 <meta property="og:type" content={type} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{image && <meta name="twitter:image" content={image} />}

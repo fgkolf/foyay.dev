@@ -2,18 +2,49 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Prose from "../components/Prose.astro";
+import Head from "../components/Head.astro";
+import JsonLd from "../components/JsonLd.astro";
 import meImage from "../assets/me.jpg";
 import Social from "../components/Social.astro";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "fgkolf",
+  url: "https://foyay.dev",
+  jobTitle: "Software Engineer",
+  worksFor: { "@type": "Organization", name: "Skroutz" },
+  sameAs: [
+    "https://github.com/fgkolf",
+    "https://www.linkedin.com/in/xenofontas-gkolfinopoulos",
+    "https://stackoverflow.com/users/13168083/fgkolf",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "foyay",
+  url: "https://foyay.dev",
+};
 ---
 
 <Layout>
+  <Head
+    slot="head"
+    title="foyay"
+    description="Software engineer based in Athens. Building things for the web and occasionally beyond it."
+  />
+  <JsonLd slot="head" schema={personSchema} />
+  <JsonLd slot="head" schema={websiteSchema} />
   <div class="p-[4vw] bordered bg-(--bg-secondary-color)">
     <div class="flex flex-col sm:flex-row gap-6 items-start max-w-prose">
       <Image class="w-full sm:w-1/2 shrink-0" alt="That's me" src={meImage} />
       <Prose>
         <p>
-          I'm a software engineer based in Athens. I build things for the web,
-          and occasionally beyond it. Currently at Skroutz.
+          Hey 👋, I'm Fontas and i am a software engineer based in Athens. I
+          build things for the web, and occasionally beyond it. Currently at
+          Skroutz.
         </p>
         <p>
           This is where I share ideas, experiments, and things that catch my

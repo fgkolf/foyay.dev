@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Head from "../components/Head.astro";
 import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
 
@@ -9,6 +10,11 @@ posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
 <Layout pageTitle={pageTitle}>
+  <Head
+    slot="head"
+    title="Blog | foyay"
+    description="Articles on web development, JavaScript, and software engineering by fgkolf."
+  />
   <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
     {
       posts.map((post) => (

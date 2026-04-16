@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Head from "../components/Head.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { getCollection } from "astro:content";
 
@@ -9,6 +10,11 @@ const pageTitle = "Projects";
 ---
 
 <Layout pageTitle={pageTitle}>
+  <Head
+    slot="head"
+    title="Projects | foyay"
+    description="Web projects and experiments by fgkolf, software engineer based in Athens."
+  />
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
     {
       projects.map((project) => (

@@ -3,11 +3,32 @@ import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Prose from "../components/Prose.astro";
 import Head from "../components/Head.astro";
+import JsonLd from "../components/JsonLd.astro";
 
 const { frontmatter } = Astro.props;
 const publishDate = new Intl.DateTimeFormat("en-US", {
   dateStyle: "long",
 }).format(new Date(frontmatter.date));
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  datePublished: frontmatter.date,
+  author: {
+    "@type": "Person",
+    name: "fgkolf",
+    url: "https://foyay.dev",
+  },
+  publisher: {
+    "@type": "Person",
+    name: "fgkolf",
+    url: "https://foyay.dev",
+  },
+  image: frontmatter.image.url.src,
+  url: Astro.url.href,
+};
 ---
 
 <Layout metaTitle={frontmatter.title}>
@@ -19,6 +40,7 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
     keywords={frontmatter.tags}
     type="article"
   />
+  <JsonLd slot="head" schema={articleSchema} />
   <div class="p-[4vw] bordered bg-(--bg-secondary-color)">
     <div class="flex flex-col gap-2 text-center mb-8">
       <h1 class="text-3xl font-bold">
