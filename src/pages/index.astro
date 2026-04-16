@@ -7,34 +7,29 @@ import Social from "../components/Social.astro";
 ---
 
 <Layout>
-  <div class="p-[4vw] bordered bg-[var(--bg-secondary-color)]">
-    <Prose>
-      <Image
-        class="sm:float-left sm:w-1/2 sm:mr-6 sm:mb-0 max-sm:mb-6"
-        alt="That's me"
-        src={meImage}
-      />
-      <section class="sm:float-none sm:mt-0">
+  <div class="p-[4vw] bordered bg-(--bg-secondary-color)">
+    <div class="flex flex-col sm:flex-row gap-6 items-start max-w-prose">
+      <Image class="w-full sm:w-1/2 shrink-0" alt="That's me" src={meImage} />
+      <Prose>
         <p>
-          Hey 👋, I'm a software engineer based in Athens with experience in
-          building things on the web and beyond. I am currently working at
-          Skroutz.
+          I'm a software engineer based in Athens. I build things for the web,
+          and occasionally beyond it. Currently at Skroutz.
         </p>
         <p>
-          This is a place where I share ideas, experiments, and things I find
-          interesting. It also demonstrates some of my work and the stuff i am
-          thrilled or curious about.
+          This is where I share ideas, experiments, and things that catch my
+          attention — alongside some of my work and whatever I'm currently
+          excited about.
         </p>
         <p>
-          I am also passionate in music and into the craft of creating
-          playlists. You can find some <a
-            href="https://open.spotify.com/user/fean0r11/playlists">here</a
+          Outside of code, I spend time making music playlists. You can find
+          them <a href="https://open.spotify.com/user/fean0r11/playlists"
+            >here</a
           >.
         </p>
         <div class="flex items-center gap-2">
           Let's get in touch: <Social />
         </div>
-      </section>
-    </Prose>
+      </Prose>
+    </div>
   </div>
 </Layout>

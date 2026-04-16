@@ -19,15 +19,13 @@ const publishDate = new Intl.DateTimeFormat("en-US", {
     keywords={frontmatter.tags}
     type="article"
   />
-  <div class="p-[4vw] bordered bg-[var(--bg-secondary-color)]">
+  <div class="p-[4vw] bordered bg-(--bg-secondary-color)">
     <div class="flex flex-col gap-2 text-center mb-8">
       <h1 class="text-3xl font-bold">
         {frontmatter.title}
       </h1>
       <p class="font-bold">
-        by <span class="text-[var(--highlight-color)]"
-          >{frontmatter.author}</span
-        >
+        by <span class="text-(--highlight-color)">{frontmatter.author}</span>
       </p>
       <p>
         Posted on {publishDate}

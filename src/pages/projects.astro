@@ -13,7 +13,7 @@ const pageTitle = "Projects";
     {
       projects.map((project) => (
         <ProjectCard
-          url={`/projects/${project.slug}`}
+          url={`/projects/${project.id}`}
           frontmatter={project.data}
         />
       ))

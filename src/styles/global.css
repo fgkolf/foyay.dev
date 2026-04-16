@@ -1,8 +1,10 @@
-@import url('./fonts.css');
-@import url('./variables.css');
+@import './fonts.css';
+@import './variables.css';
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
 
 @media (prefers-reduced-motion: no-preference) {
-    /* noinspection ALL */
     @view-transition {
         navigation: auto;
     }
@@ -26,12 +28,14 @@ footer {
 
 pre {
     white-space: pre-wrap;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-img {
-    border-radius: 0.5rem;
-    border: 3px solid var(--base-color);
+@layer base {
+    img {
+        border-radius: 0.5rem;
+        border: 3px solid var(--base-color);
+    }
 }
 
 .bordered {

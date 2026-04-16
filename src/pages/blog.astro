@@ -13,7 +13,7 @@ posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
     {
       posts.map((post) => (
         <li>
-          <PostCard url={`/posts/${post.slug}`} frontmatter={post.data} />
+          <PostCard url={`/posts/${post.id}`} frontmatter={post.data} />
         </li>
       ))
     }
