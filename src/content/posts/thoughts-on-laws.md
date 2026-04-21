@@ -1,10 +1,10 @@
 ---
-title: 'Thoughts on laws'
+title: 'Thoughts on Laws'
 date: 2026-04-21
 description: Reflections on software engineering laws, when to follow them, and when to break them.
 author: 'fgkolf'
 readingTime: '2min'
-tags: ["software-engineering"]
+tags: ["software-engineering", "engineering"]
 image:
     url: '/src/assets/posts/post-placeholder.png'
     alt: 'Temporary placeholder image. Replace with final artwork for this post.'
