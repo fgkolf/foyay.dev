@@ -7,7 +7,7 @@ readingTime: '2min'
 tags: ["software-engineering"]
 image:
     url: '/src/assets/posts/abort-controllers.png'
-    alt: 'A symbolic image representing software engineering laws and decisions.'
+    alt: 'Temporary placeholder image. Replace with final artwork for this post.'
 ---
 
 I recently came across the term `Laws of software engineering`. I found a list of 100 items and started reading them (there are several lists and the number of laws varies, with the most common appearing to be 13).
