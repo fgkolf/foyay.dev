@@ -6,7 +6,7 @@ author: 'fgkolf'
 readingTime: '2min'
 tags: ["software-engineering"]
 image:
-    url: '/src/assets/posts/abort-controllers.png'
+    url: '/src/assets/posts/post-placeholder.png'
     alt: 'Temporary placeholder image. Replace with final artwork for this post.'
 ---
 
