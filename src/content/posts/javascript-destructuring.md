@@ -12,7 +12,7 @@ image:
 
 ### Destructuring Assignment
 The destructuring assignment syntax is a way to "unpack" values from arrays, properties from objects, or any other iterable, into distinct variables.
-Since ```Arrays``` and ```Objects``` are the most commonly data structures used in JavaScript then the usage of destructuring can be extremely handy for data manipulation and code clarity.
+Since ```Arrays``` and ```Objects``` are the most common data structures used in JavaScript then the usage of destructuring can be extremely handy for data manipulation and code clarity.
 
 ### Array Destructuring
 Given the array below
@@ -47,7 +47,7 @@ Additionally we can use the <a href='https://developer.mozilla.org/en-US/docs/We
 const [firstFruit, ...otherFruits] = fruits;  // firstFruit = 'apple', otherFruits = ['banana', 'orange', 'tangerine'] 
 ```
 
-It has to be mentioned that default values can be also declared to prevent variable of lack of values. Of course if a value was present then the default value would be ignored:
+It has to be mentioned that default values can be also declared to handle missing values. Of course if a value was present then the default value would be ignored:
 ``` javascript
 const [firstFruit, secondFruit='tangerine'] = ['apple'];  // firstFruit = 'apple', secondFruit = 'tangerine'
 
@@ -68,12 +68,12 @@ const { name, ...other } = fruit; // name = 'apple', other = { color = 'red', se
 
 Default values can also be declared in object destructuring:
 ``` javascript
-const { name, color, season='summer' } = { name: 'banana', color: 'yellow' }}; // name = 'banana', color = 'yellow', season = 'summer'
+const { name, color, season='summer' } = { name: 'banana', color: 'yellow' }; // name = 'banana', color = 'yellow', season = 'summer'
 ```
 
 Additionally we may want to assign a value to a variable with a different name than the property of the object. This can be done with the syntax below:
 ``` javascript
-const { name: fruitName, color: fruitColor } = { name: 'banana', color: 'yellow' }}; // fruitName = 'banana', fruitColor: 'yellow'
+const { name: fruitName, color: fruitColor } = { name: 'banana', color: 'yellow' }; // fruitName = 'banana', fruitColor: 'yellow'
 ```
 
 ### Combined Destructuring
@@ -95,7 +95,7 @@ A really useful case for destructuring instead of data manipulation is destructu
 
 Given the below function that gets a configuration object as a parameter:
 ``` javascript
-const someFunction = (config) = {
+const someFunction = (config) => {
   if (config.isEnabled) {
     console.log(config.value)
   }
@@ -103,7 +103,7 @@ const someFunction = (config) = {
 ```
 This can be re-written like:
 ``` javascript
-const someFunction = ({ isEnabled, value }}) = {
+const someFunction = ({ isEnabled, value }) => {
   if (isEnabled) {
     console.log(value)
   }

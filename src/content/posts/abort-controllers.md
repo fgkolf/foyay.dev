@@ -12,7 +12,7 @@ image:
 
 ### What is an `AbortController`?
 
-`AbortController` is a browser API ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)) that allows you to create a signal (`AbortSignal`) and pass to certain APIs like `fetch`, `addEventListener`, and more. Calling `.abort()` on the controller triggers an "abort" signal, which notifies any listeners or handlers connected to that signal to cancel their operation.
+`AbortController` is a browser API ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)) that allows you to create a signal (`AbortSignal`) and pass it to certain APIs like `fetch`, `addEventListener`, and more. Calling `.abort()` on the controller triggers an "abort" signal, which notifies any listeners or handlers connected to that signal to cancel their operation.
 
 A basic example:
 
@@ -70,7 +70,7 @@ useEffect(() => {
   document.addEventListener('resize', onResize, { signal });
 
   return () => {
-    abortController.abort(); // Removes everyting tied to the signal
+    abortController.abort(); // Removes everything tied to the signal
   };
 }, []);
 ```
@@ -91,7 +91,7 @@ useEffect(() => {
   document.addEventListener('resize', onResize, { signal });
 
   return () => {
-    abortController.abort(); // Cancels the fetch request
+    abortController.abort(); // Cancels the fetch request and removes all listeners
   };
 }, []);
 ```

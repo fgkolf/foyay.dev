@@ -40,6 +40,6 @@ Because sometimes one isn't enough. Using both says:
 **"Don't cache. But if you somehow do... revalidate first."**  
 It’s overkill, but it’s safe. Think belt *and* suspenders.
 
-Bonus tip: Always combine these with the right headers (Pragma, Expires) if you're dealing with legacy HTTP/1.0 clients — but i hope you don’t care about IE6.
+Bonus tip: Always combine these with the right headers (Pragma, Expires) if you're dealing with legacy HTTP/1.0 clients — but I hope you don’t care about IE6.
 
 Inspired by this [stack-overflow post](https://stackoverflow.com/questions/866822/why-both-no-cache-and-no-store-should-be-used-in-http-response)
