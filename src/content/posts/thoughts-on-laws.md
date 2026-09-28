@@ -1,6 +1,7 @@
 ---
 title: 'Thoughts on Laws'
 date: 2026-04-21
+draft: false
 description: Reflections on software engineering laws, when to follow them, and when to break them.
 tags: ["engineering"]
 image:

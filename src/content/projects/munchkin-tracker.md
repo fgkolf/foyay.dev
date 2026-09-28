@@ -1,6 +1,7 @@
 ---
 title: 'Munchkin Tracker'
 date: 2021-10-06  
+draft: false
 description: 'A simple scoreboard app for Munchkin'
 tags: ["JavaScript", "React Native", "CSS"]
 images: [

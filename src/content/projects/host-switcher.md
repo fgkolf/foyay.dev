@@ -1,6 +1,7 @@
 ---
 title: 'Host Switcher'
 date: 2025-11-23
+draft: false
 description: "Switch the host of the current tab's URL."
 tags: ["JavaScript", "HTML", "CSS"]
 images: [

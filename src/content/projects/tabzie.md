@@ -1,6 +1,7 @@
 ---
 title: 'Tabzie'
 date: 2022-11-02
+draft: false
 description: 'A minimal tab organiser extension for firefox.'
 tags: ["JavaScript", "HTML", "CSS"]
 images: [

@@ -1,6 +1,7 @@
 ---
 title: 'no-cache no-store (no-shit)'
 date: 2025-05-01
+draft: false
 description: A guide on how to finally stop caching that damn JSON response. When to use each of them and how to distinguish.
 tags: ["http", "web"]
 image:

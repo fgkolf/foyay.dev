@@ -1,6 +1,7 @@
 ---
 title: 'Destructuring in Javascript'
 date: 2024-01-07
+draft: false
 description: A way to "unpack" values from arrays, properties from objects, or any other iterable, into distinct variables.
 tags: ["javascript"]
 image:
