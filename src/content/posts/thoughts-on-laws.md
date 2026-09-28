@@ -2,8 +2,6 @@
 title: 'Thoughts on Laws'
 date: 2026-04-21
 description: Reflections on software engineering laws, when to follow them, and when to break them.
-author: 'fgkolf'
-readingTime: '2min'
 tags: ["engineering"]
 image:
     url: '/src/assets/posts/thoughts-on-laws.png'

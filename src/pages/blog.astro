@@ -2,11 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Head from "../components/Head.astro";
 import PostCard from "../components/PostCard.astro";
-import { getCollection } from "astro:content";
+import { getPosts } from "../lib/content.js";
 
-const posts = await getCollection("posts");
+const posts = await getPosts();
 const pageTitle = "Blog";
-posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 ---

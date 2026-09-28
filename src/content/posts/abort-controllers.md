@@ -2,8 +2,6 @@
 title: 'Abort Controllers'
 date: 2025-05-24
 description: Effectively remove event listeners and cancel promises in JavaScript.
-author: 'fgkolf'
-readingTime: '3min'
 tags: ["javascript"]
 image:
     url: '/src/assets/posts/abort-controllers.png'

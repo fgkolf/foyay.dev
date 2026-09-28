@@ -2,8 +2,6 @@
 title: 'Enabling View Transitions'
 date: 2025-06-14
 description: Get Single Page Application transitions with minimal effort using CSS.
-author: 'fgkolf'
-readingTime: '2min'
 tags: ["css", "web"]
 image:
   url: '/src/assets/posts/view-transitions.png'

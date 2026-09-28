@@ -6,7 +6,8 @@ const projectsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      date: z.date(),
+      date: z.coerce.date(),
+      draft: z.boolean().default(false),
       description: z.string(),
       tags: z.array(z.string()),
       images: z.array(
@@ -23,10 +24,10 @@ const postsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      date: z.date(),
+      date: z.coerce.date(),
+      draft: z.boolean().default(false),
       description: z.string(),
-      author: z.string(),
-      readingTime: z.string(),
+      author: z.string().default("fgkolf"),
       tags: z.array(z.string()),
       image: z.object({
         url: image(),

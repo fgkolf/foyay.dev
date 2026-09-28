@@ -1,9 +1,8 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getPosts } from '../lib/content.js';
 
 export async function GET(context) {
-  const posts = await getCollection('posts');
-  posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+  const posts = await getPosts();
   return rss({
     title: 'foyay | Blog',
     description: 'Articles on web development, JavaScript, and software engineering by fgkolf.',
