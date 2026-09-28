@@ -22,10 +22,11 @@ content:
       - { name: date, label: Date, type: date, required: true }
       - { name: draft, label: Draft, type: boolean, default: true }
       - { name: description, label: Description, type: text, required: true }
-      - { name: tags, label: Tags, type: string, list: true }
+      - { name: tags, label: Tags, type: string, list: true, required: true }
       - name: image
         label: Cover image
         type: object
+        required: true
         fields:
           - { name: url, label: Image, type: image, required: true, options: { path: src/assets/posts } }
           - { name: alt, label: Alt text, type: string, required: true }
@@ -51,11 +52,12 @@ content:
       - { name: date, label: Date, type: date, required: true }
       - { name: draft, label: Draft, type: boolean, default: true }
       - { name: description, label: Description, type: text, required: true }
-      - { name: tags, label: Tags, type: string, list: true }
+      - { name: tags, label: Tags, type: string, list: true, required: true }
       - name: images
         label: Images
         type: object
         list: true
+        required: true
         fields:
           - { name: url, label: Image, type: image, required: true, options: { path: src/assets/projects } }
           - { name: alt, label: Alt text, type: string, required: true }
