@@ -4,8 +4,7 @@ date: 2026-09-28
 draft: false
 description: How this site is built, hosted and edited without paying a cent.
 tags:
-  - hosting
-  - cms
+  - web
 image:
   url: /src/assets/posts/zero-cost.png
   alt: Mug sold at zero price
