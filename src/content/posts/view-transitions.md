@@ -1,15 +1,15 @@
 ---
-title: 'Enabling View Transitions'
+title: Enabling View Transitions
 date: 2025-06-14
+draft: false
 description: Get Single Page Application transitions with minimal effort using CSS.
-author: 'fgkolf'
-readingTime: '2min'
-tags: ["css", "web"]
+tags:
+  - css
+  - web
 image:
-  url: '/src/assets/posts/view-transitions.png'
-  alt: 'A smooth page transition animation in a browser.'
+  url: /src/assets/posts/view-transitions.png
+  alt: A smooth page transition animation in a browser.
 ---
-
 ### Living the SPA dream
 
 I've been around web development for a couple of years now and lived the single page application (SPA) dream.

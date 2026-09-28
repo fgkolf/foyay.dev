@@ -1,15 +1,15 @@
 ---
-title: 'Thoughts on Laws'
+title: Thoughts on Laws
 date: 2026-04-21
-description: Reflections on software engineering laws, when to follow them, and when to break them.
-author: 'fgkolf'
-readingTime: '2min'
-tags: ["engineering"]
+draft: false
+description: Reflections on software engineering laws, when to follow them, and
+  when to break them.
+tags:
+  - engineering
 image:
-    url: '/src/assets/posts/thoughts-on-laws.png'
-    alt: 'A toilet paper on a holder placed in a way that makes it hard to use'
+  url: /src/assets/posts/thoughts-on-laws.png
+  alt: A toilet paper on a holder placed in a way that makes it hard to use
 ---
-
 ## The Discovery
 
 I recently came across the term **Laws of software engineering**. I found a list of 100 items and started reading them. There are several lists out there, and the number of "laws" varies—the most common appearing to be 13.
@@ -52,5 +52,6 @@ That's probably why everything **"depends"** when it comes to programming decisi
 
 ---
 
-> Inspired by https://lawsofsoftwareengineering.com/  
+> Inspired by [https://lawsofsoftwareengineering.com/](https://lawsofsoftwareengineering.com/)  
 > Read at your own risk.
+
