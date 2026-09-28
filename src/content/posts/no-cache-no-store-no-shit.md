@@ -1,18 +1,22 @@
 ---
-title: 'no-cache no-store (no-shit)'
+title: no-cache no-store (no-shit)
 date: 2025-05-01
 draft: false
-description: A guide on how to finally stop caching that damn JSON response. When to use each of them and how to distinguish.
-tags: ["http", "web"]
+description: A guide on how to finally stop caching that damn JSON response.
+  When to use each of them and how to distinguish.
+tags:
+  - http
+  - web
 image:
-    url: '/src/assets/posts/no-cache-no-store-no-shit.png'
-    alt: 'A belt with suspenders'
+  url: /src/assets/posts/no-cache-no-store-no-shit.png
+  alt: A belt with suspenders
 ---
-
 I am sure it's not the first time you see this header:  
+
 ```
 Cache-Control: no-cache, no-store
 ```
+
 You’ve seen it in the wild. Maybe you’ve even copy-pasted it into your headers, fingers crossed that your browser finally stops caching that damn JSON response. But what do these directives actually mean, and why are they often used together?
 
 ### TL;DR

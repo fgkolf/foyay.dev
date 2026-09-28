@@ -1,14 +1,14 @@
 ---
-title: 'Abort Controllers'
+title: Abort Controllers
 date: 2025-05-24
 draft: false
 description: Effectively remove event listeners and cancel promises in JavaScript.
-tags: ["javascript"]
+tags:
+  - javascript
 image:
-    url: '/src/assets/posts/abort-controllers.png'
-    alt: 'A hand pressing a red abort button.'
+  url: /src/assets/posts/abort-controllers.png
+  alt: A hand pressing a red abort button.
 ---
-
 ### What is an `AbortController`?
 
 `AbortController` is a browser API ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)) that allows you to create a signal (`AbortSignal`) and pass it to certain APIs like `fetch`, `addEventListener`, and more. Calling `.abort()` on the controller triggers an "abort" signal, which notifies any listeners or handlers connected to that signal to cancel their operation.
@@ -94,3 +94,4 @@ useEffect(() => {
   };
 }, []);
 ```
+
