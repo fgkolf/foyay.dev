@@ -1,7 +1,7 @@
 ---
 title: Hosting a Website for Zero Bucks
 date: 2026-09-28
-draft: true
+draft: false
 description: How this site is built, hosted and edited without paying a cent.
 tags:
   - hosting
