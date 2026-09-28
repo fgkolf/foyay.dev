@@ -1,0 +1,65 @@
+media:
+  input: src/assets
+  output: /src/assets
+  extensions: [png, jpg, jpeg, webp, gif, svg]
+  rename: safe
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/content/posts
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [title, date, draft]
+      primary: title
+      sort: [date, title]
+      default: { sort: date, order: desc }
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: draft, label: Draft, type: boolean, default: true }
+      - { name: description, label: Description, type: text, required: true }
+      - { name: tags, label: Tags, type: string, list: true }
+      - name: image
+        label: Cover image
+        type: object
+        fields:
+          - { name: url, label: Image, type: image, required: true, options: { path: src/assets/posts } }
+          - { name: alt, label: Alt text, type: string, required: true }
+      - name: body
+        label: Body
+        type: rich-text
+        options: { format: markdown, path: src/assets/posts }
+
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [title, date, draft]
+      primary: title
+      sort: [date, title]
+      default: { sort: date, order: desc }
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: draft, label: Draft, type: boolean, default: true }
+      - { name: description, label: Description, type: text, required: true }
+      - { name: tags, label: Tags, type: string, list: true }
+      - name: images
+        label: Images
+        type: object
+        list: true
+        fields:
+          - { name: url, label: Image, type: image, required: true, options: { path: src/assets/projects } }
+          - { name: alt, label: Alt text, type: string, required: true }
+      - name: body
+        label: Body
+        type: rich-text
+        options: { format: markdown, path: src/assets/projects }
